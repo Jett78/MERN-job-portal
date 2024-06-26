@@ -10,3 +10,10 @@
     font-family: "Poppins", sans-serif;
     letter-spacing: 0.3px;
 }
+.card-icon{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 0.875rem;
+    color:  #4b5563 ;
+}
