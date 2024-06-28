@@ -3,13 +3,14 @@ import SearchJob from '../components/SearchJob'
 import Card from '../components/Card';
 import Jobs from '../components/Jobs';
 import Sidebar from '../sidebar/Sidebar';
+import Pagination from '../components/Pagination';
 
 const Home = () => {
   const[selectedCategory,setSelectedCategory] = useState();
   const[jobs,setJobs] = useState([]);
   const[isLoading,setLoading] = useState(false);
   const[currentPage,setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 3;
 
   useEffect(() => {
     setLoading(true)
@@ -106,14 +107,7 @@ const Home = () => {
        }
 
       {/*  pagination */}
-      {result.length > 0 ? (
-        <div>
-          <button onClick={prevPage} >Previous</button>
-          <span>  Page {currentPage} of {Math.ceil(filteredItems.length/itemsPerPage)}</span>
-          <button onClick={nextPage} disabled={currentPage === Math.ceil(filteredItems.length/itemsPerPage)}>Next</button>
-        </div>):""
-      }
-
+     <Pagination prevPage={prevPage} nextPage={nextPage} result={result} currentPage={currentPage} itemsPerPage={itemsPerPage} filteredItems={filteredItems}/>
      </div>
 
      {/* right-side */}
